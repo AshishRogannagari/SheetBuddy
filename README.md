@@ -21,15 +21,29 @@ pip install sheetbuddy
 
 ### Usage
 
-Example 1: Generating an EDA Report from a CSV File
+Example 1: Generating an EDA Report from a CSV File.
 
-```
-from sheetbuddy import SheetBuddy 
+
+```python
+
+`from sheetbuddy import SheetBuddy 
 
 file_path_or_url = 'https://people.sc.fsu.edu/~jburkardt/data/csv/airtravel.csv'
 output_file_name = 'eda_report.xlsx'
 
 sb = SheetBuddy(file_path_or_url)
-sb.generate_eda_report(output_file_name)
+sb.generate_eda_report(output_file_name)`
 
 ```
+
+
+Example 2: Generating an EDA Report from a Local JSON File.
+
+
+from sheetbuddy import SheetBuddy
+
+file_path = 'path/to/your/data.json'
+output_file_name = 'eda_report.xlsx'
+
+sb = SheetBuddy(file_path)
+sb.generate_eda_report(output_file_name)
