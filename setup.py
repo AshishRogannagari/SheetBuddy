@@ -1,3 +1,11 @@
+
+### `setup.py`
+# This file is used to package the library and upload it to PyPI.
+# It contains metadata about the library, such as the name, version, author, and dependencies.
+# The `setup()` function is called with the following arguments:
+# - `SheetBuddy`: The name of the library.
+
+
 from setuptools import setup, find_packages
 
 # Load the README file.
