@@ -19,6 +19,10 @@ You can install SheetBuddy using `pip`:
 pip install sheetbuddy
 ```
 
+```bash
+pip3 install sheetbuddy
+```
+
 ### Usage
 
 Example 1: Generating an EDA Report from a CSV File.
