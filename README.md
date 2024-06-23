@@ -18,9 +18,6 @@ You can install SheetBuddy using `pip`. It is recommended to use a virtual envir
 
 - Python 3.6 or higher.
 
-
-SheetBuddy is a Python library for performing exploratory data analysis (EDA) and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
-
 ## 🔗 Installation:
 
 You can install SheetBuddy using `pip`:
