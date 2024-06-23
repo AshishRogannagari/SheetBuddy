@@ -1,5 +1,11 @@
+import sys
+import os
 import unittest
-from src.sheetbuddy import SheetBuddy
+
+# Ensure the src directory is in the path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
+from sheetbuddy import SheetBuddy
 
 class TestSheetBuddy(unittest.TestCase):
     def test_read_csv(self):
@@ -21,4 +27,3 @@ class TestSheetBuddy(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    
