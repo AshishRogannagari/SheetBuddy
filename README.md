@@ -19,6 +19,8 @@ You can install SheetBuddy using `pip`:
 pip install sheetbuddy
 ```
 
+# or
+
 ```bash
 pip3 install sheetbuddy
 ```
