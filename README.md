@@ -26,24 +26,26 @@ Example 1: Generating an EDA Report from a CSV File.
 
 ```python
 
-`from sheetbuddy import SheetBuddy 
+from sheetbuddy import SheetBuddy 
 
 file_path_or_url = 'https://people.sc.fsu.edu/~jburkardt/data/csv/airtravel.csv'
-output_file_name = 'eda_report.xlsx'
+output_file_name = 'datasummary_report.xlsx'
 
 sb = SheetBuddy(file_path_or_url)
-sb.generate_eda_report(output_file_name)`
-
+sb.generate_eda_report(output_file_name)
 ```
+
 
 
 Example 2: Generating an EDA Report from a Local JSON File.
 
-
+```
 from sheetbuddy import SheetBuddy
 
 file_path = 'path/to/your/data.json'
-output_file_name = 'eda_report.xlsx'
+output_file_name = 'enter_your_desired_name.xlsx'
 
 sb = SheetBuddy(file_path)
 sb.generate_eda_report(output_file_name)
+
+```
