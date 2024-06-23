@@ -1,0 +1,13 @@
+# Python
+*.pyc
+__pycache__/
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+
+# Misc
+.DS_Store
+.env

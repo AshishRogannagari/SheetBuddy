@@ -17,3 +17,4 @@ You can install SheetBuddy using `pip`. It is recommended to use a virtual envir
 ### Prerequisites
 
 - Python 3.6 or higher.
+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
