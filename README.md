@@ -39,7 +39,8 @@ sb.generate_eda_report(output_file_name)
 
 Example 2: Generating an EDA Report from a Local JSON File.
 
-```
+```python
+
 from sheetbuddy import SheetBuddy
 
 file_path = 'path/to/your/data.json'
