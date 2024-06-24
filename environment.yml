@@ -1,0 +1,10 @@
+name: sheetbuddy-env
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - flake8
+  - pytest
+  - pip:
+    - -r requirements.txt
