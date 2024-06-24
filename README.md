@@ -67,3 +67,18 @@ sb = SheetBuddy(filename)
 sb.generate_eda_report(outputfile)
 
 ```
+# How It Works:
+
+1.Data Loading: SheetBuddy loads data from the specified source (CSV, JSON, or API).
+
+2.Data Analysis: It performs various data analyses, including summary statistics, null values analysis, and column descriptions.
+
+3.Report Generation: The results are compiled into an Excel file with conditional formatting and styling for easy interpretation.
+
+# Contributing:
+
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request on GitHub.
+
+# License:
+
+SheetBuddy is licensed under the MIT License. See the LICENSE file for more details.
