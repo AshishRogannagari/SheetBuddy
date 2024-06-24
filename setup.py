@@ -4,11 +4,11 @@ setup(
     name="SheetBuddy",
     version="1.0.0",
     author="Ashish Rogannagari",
-    author_email="your_email@example.com",
+    author_email="Ashishrogannagari98@gmail.com",
     description="A library for data summary and analysis from various formats such as CSV, API, URL, etc.",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/AshishRogannagari/sheetbuddy",  # Replace with your actual GitHub repository URL
+    url="https://github.com/AshishRogannagari/sheetbuddy",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
