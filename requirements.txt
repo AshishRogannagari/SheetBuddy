@@ -1,0 +1,6 @@
+pandas
+requests
+openpyxl
+tqdm
+flake8
+pytest
