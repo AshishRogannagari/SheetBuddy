@@ -20,7 +20,7 @@ pip install sheetbuddy==1.0.0
 ```
 # or
 ```bash
-pip install sheetbuddy
+pip install sheetbuddy --upgrade
 ```
 
 ### Usage
