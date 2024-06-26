@@ -403,7 +403,7 @@ class SheetBuddy:
         Retrieves basic mathematical calculations for numerical columns.
 
         Returns:
-        --------
+        -------
         DataFrame
             A DataFrame containing mean, median, mode, and range for each numerical column.
         """
@@ -418,3 +418,4 @@ class SheetBuddy:
         except Exception as e:
             logging.error(f"Error calculating basic mathematics: {e}")
             return pd.DataFrame()
+        
