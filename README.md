@@ -3,16 +3,22 @@
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA) , Data sunmmary  and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
 
-![PyPI - Downloads](https://img.shields.io/pypi/dd/sheetbuddy)
-![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)
-![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)
-![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)
-![GitHub issues](https://img.shields.io/github/issues/AshishRogannagari/sheetbuddy)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/AshishRogannagari/sheetbuddy)
-![GitHub contributors](https://img.shields.io/github/contributors/AshishRogannagari/sheetbuddy)
-![GitHub forks](https://img.shields.io/github/forks/AshishRogannagari/sheetbuddy)
-![GitHub stars](https://img.shields.io/github/stars/AshishRogannagari/sheetbuddy)
-![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)
+[![PyPI - Daily Downloads](https://img.shields.io/pypi/dd/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
+[![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
+[![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
+
+
+
+[![GitHub issues](https://img.shields.io/github/issues/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/pulls)
+[![GitHub contributors](https://img.shields.io/github/contributors/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/graphs/contributors)
+[![GitHub forks](https://img.shields.io/github/forks/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/stargazers)
+[![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/blob/main/LICENSE)
+[![fork](https://img.shields.io/badge/fork-red)](https://github.com/login?return_to=%2FAshishRogannagari%2FSheetBuddy)
+[![Clone](https://img.shields.io/badge/Clone-blue)](https://github.com/AshishRogannagari/sheetbuddy.git)
+
 
 
 
@@ -32,13 +38,19 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA) , 
 You can install SheetBuddy using `pip`:
 
 ```bash
-pip install sheetbuddy==1.0.0
+pip install sheetbuddy
 ```
 # or
 ```bash
-pip install sheetbuddy --upgrade
+pip install sheetbuddy==1.0.0
 ```
 
+## Check for the lastest version
+
+
+```bash
+pip install sheetbuddy --upgrade
+```
 ### Usage
 
 Example 1: Generating an  EDA and Datasummary Report from a CSV File.
