@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # Keep dependencies updated for the main requirements file
+  - package-ecosystem: "pip"
+    directory: "https://github.com/AshishRogannagari/SheetBuddy/blob/main/requirements.txt" 
+    schedule:
+      interval: "weekly"
