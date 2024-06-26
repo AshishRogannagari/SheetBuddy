@@ -1,5 +1,4 @@
-
-# SheetBuddy
+# <a name="top"></a>SheetBuddy
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA) , Data sunmmary  and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
 
@@ -110,3 +109,13 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 # License:
 
 SheetBuddy is licensed under the MIT License. See the LICENSE file for more details.
+
+
+<a href="#top" style="position:fixed;bottom:20px;right:20px;background-color:#009688;color:white;padding:10px 20px;border-radius:25px;text-align:center;text-decoration:none;font-size:20px;box-shadow:2px 2px 8px rgba(0,0,0,0.4);">
+    Back to Top
+</a>
+
+
+
+
+
