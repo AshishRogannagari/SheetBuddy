@@ -3,13 +3,29 @@
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA) , Data sunmmary  and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
 
-## Features
+![PyPI - Downloads](https://img.shields.io/pypi/dd/sheetbuddy)
+![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)
+![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)
+![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)
+![GitHub issues](https://img.shields.io/github/issues/AshishRogannagari/sheetbuddy)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AshishRogannagari/sheetbuddy)
+![GitHub contributors](https://img.shields.io/github/contributors/AshishRogannagari/sheetbuddy)
+![GitHub forks](https://img.shields.io/github/forks/AshishRogannagari/sheetbuddy)
+![GitHub stars](https://img.shields.io/github/stars/AshishRogannagari/sheetbuddy)
+![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)
 
+
+
+## Features
+- Data Cleaning and Preprocessing
 - Load data from CSV, JSON, and APIs
 - Generate EDA reports in Excel format
 - Summary statistics, null values, standard deviation, and more
-- Column information including descriptions('May not be available for all columns')
+- Column information including descriptions ('May not be available for all columns')
 - Conditional formatting and styling for Excel sheets
+- Summary Statistics
+- Visualization (Correlation Matrix, Basic Mathematics)
+- Data Export (Excel)
 
 ## Installation
 
