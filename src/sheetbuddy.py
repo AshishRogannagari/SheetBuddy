@@ -1,13 +1,14 @@
-# eda/sheetbuddy.py
+"""
+SheetBuddy module for performing various EDA (Exploratory Data Analysis) operations on datasets.
+"""
 
 import time
-import pandas as pd
-import requests
 from io import StringIO
-from tqdm import tqdm
-import openpyxl
-from openpyxl.styles import PatternFill, Alignment, Font
 import logging
+import requests
+import pandas as pd
+from tqdm import tqdm
+from openpyxl.styles import PatternFill, Alignment, Font
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -52,69 +53,8 @@ COLUMN_DESCRIPTIONS = {
     'role': 'The role or permissions associated with the individual.',
     'group': 'The group or team associated with the individual.',
     'session': 'The session identifier for the record.',
-    'token': 'The authentication token for the individual or entity.',
-    'url': 'The URL or web address associated with the record.',
-    'image': 'The image or picture associated with the record.',
-    'file': 'The file name or identifier associated with the record.',
-    'size': 'The size or dimensions of the record.',
-    'length': 'The length or duration of the record.',
-    'width': 'The width or breadth of the record.',
-    'height': 'The height or elevation of the record.',
-    'weight': 'The weight or mass of the record.',
-    'color': 'The color or hue of the record.',
-    'brand': 'The brand or manufacturer of the record.',
-    'model': 'The model or version of the record.',
-    'make': 'The make or origin of the record.',
-    'year': 'The year or date of the record.',
-    'rating': 'A rating or score associated with the record.',
-    'review': 'A review or feedback comment for the record.',
-    'tag': 'A tag or label associated with the record.',
-    'timestamp': 'The date and time of the record.',
-    'latitude': 'The latitude or geographic coordinate.',
-    'longitude': 'The longitude or geographic coordinate.',
-    'altitude': 'The altitude or elevation above sea level.',
-    'speed': 'The speed or velocity of the record.',
-    'temperature': 'The temperature value or reading.',
-    'pressure': 'The pressure value or reading.',
-    'humidity': 'The humidity value or reading.',
-    'voltage': 'The voltage value or reading.',
-    'current': 'The current value or reading.',
-    'power': 'The power value or reading.',
-    'energy': 'The energy value or reading.',
-    'frequency': 'The frequency value or reading.',
-    'signal': 'The signal strength or quality.',
-    'status': 'The status or condition of the record.',
-    'level': 'The level or degree of the record.',
-    'mode': 'The mode or setting of the record.',
-    'state': 'The state or condition of the record.',
-    'action': 'The action or operation performed.',
-    'result': 'The result or outcome of the record.',
-    'error': 'The error message or code associated with the record.',
-    'warning': 'The warning message or notification.',
-    'message': 'The message or communication content.',
-    'response': 'The response or reply to a request.',
-    'request': 'The request or query made.',
-    'input': 'The input or data provided.',
-    'output': 'The output or result produced.',
-    'source': 'The source or origin of the record.',
-    'destination': 'The destination or target of the record.',
-    'origin': 'The origin or starting point of the record.',
-    'target': 'The target or goal of the record.',
-    'start': 'The start or beginning of the record.',
-    'end': 'The end or completion of the record.',
-    'duration': 'The duration or length of time.',
-    'period': 'The period or interval of time.',
-    'frequency': 'The frequency or rate of occurrence.',
-    'rate': 'The rate or speed of the record.',
-    'interval': 'The interval or gap between events.',
-    'delay': 'The delay or pause in time.',
-    'time': 'The time or moment of the record.',
-    'date': 'The date or calendar day of the record.',
-    'day': 'The day of the week or month.',
-    'month': 'The month or time period.',
-    'year': 'The year or calendar date.',
-    
 }
+
 
 class SheetBuddy:
     """
@@ -124,55 +64,11 @@ class SheetBuddy:
     -----------
     file_path_or_url : str
         The file path or URL to the dataset.
-
-    Methods:
-    --------
-    read_csv():
-        Reads a CSV file into a DataFrame.
-    
-    read_json(url):
-        Reads JSON data from a URL into a DataFrame.
-    
-    read_data():
-        Determines the file type and reads the data accordingly.
-    
-    generate_eda_report(file_name):
-        Generates an EDA report and saves it to an Excel file.
-    
-    style_excel_sheet(sheet):
-        Styles the Excel sheet with formatting.
-    
-    get_column_info():
-        Retrieves information about the columns in the dataset.
-    
-    get_shape():
-        Retrieves the shape (dimensions) of the dataset.
-    
-    get_summary_statistics():
-        Retrieves summary statistics of the dataset.
-    
-    get_null_values():
-        Retrieves the count of null values for each column.
-    
-    get_null_percentage():
-        Retrieves the percentage of null values for each column.
-    
-    get_standard_deviation():
-        Retrieves the standard deviation for numerical columns.
-    
-    get_unique_values():
-        Retrieves the count of unique values for each column.
-    
-    get_most_frequent_values():
-        Retrieves the most frequent value for each column.
-    
-    get_basic_math():
-        Retrieves basic mathematical calculations for numerical columns.
     """
-    
+
     def __init__(self, file_path_or_url):
         """
-        Initializes the SheetBuddy class with the file path or URL to the dataset.
+        Initialize the SheetBuddy class with the file path or URL to the dataset.
 
         Parameters:
         -----------
@@ -184,7 +80,7 @@ class SheetBuddy:
 
     def read_csv(self):
         """
-        Reads a CSV file into a DataFrame.
+        Read a CSV file into a DataFrame.
 
         Returns:
         --------
@@ -193,50 +89,54 @@ class SheetBuddy:
         """
         try:
             if self.file_path_or_url.startswith("http"):
-                response = requests.get(self.file_path_or_url)
+                response = requests.get(self.file_path_or_url, timeout=10)
                 response.raise_for_status()
                 data = StringIO(response.text)
-                return pd.read_csv(data, encoding='unicode_escape')
-            else:
-                return pd.read_csv(self.file_path_or_url, encoding='unicode_escape')
-        except Exception as e:
-            logging.error(f"Error reading CSV file: {e}")
+                return pd.read_csv(data)
+            return pd.read_csv(self.file_path_or_url)
+        except (requests.RequestException, pd.errors.ParserError) as exc:
+            logging.error("Error reading CSV file: %s", exc)
             return None
 
-    def read_json(self, url):
+    def read_json(self):
         """
-        Reads JSON data from a URL into a DataFrame.
-
-        Parameters:
-        -----------
-        url : str
-            The URL to the JSON data.
+        Read JSON data from a URL or file into a DataFrame.
 
         Returns:
         --------
         DataFrame
-            The dataset read from the JSON URL.
+            The dataset read from the JSON URL or file.
         """
         try:
-            response = requests.get(url)
+            if self.file_path_or_url.startswith("http"):
+                response = requests.get(self.file_path_or_url, timeout=10)
+                response.raise_for_status()
+                return pd.read_json(response.text)
+            return pd.read_json(self.file_path_or_url)
+        except (requests.RequestException, ValueError) as exc:
+            logging.error("Error reading JSON file: %s", exc)
+            return None
+
+    def read_api(self):
+        """
+        Read data from an API into a DataFrame.
+
+        Returns:
+        --------
+        DataFrame
+            The dataset read from the API.
+        """
+        try:
+            response = requests.get(self.file_path_or_url, timeout=10)
             response.raise_for_status()
-            json_data = response.text
-            # Attempt to load the JSON data, handle trailing data issue
-            try:
-                data = pd.read_json(StringIO(json_data))
-            except ValueError as e:
-                logging.error(f"Initial JSON read error: {e}. Attempting to clean data...")
-                # Remove trailing data and try again
-                json_data = json_data.strip().rstrip(',}')
-                data = pd.read_json(StringIO(json_data))
-            return data
-        except Exception as e:
-            logging.error(f"Error reading JSON data from URL: {e}")
+            return pd.read_json(response.text)
+        except (requests.RequestException, ValueError) as exc:
+            logging.error("Error reading API data: %s", exc)
             return None
 
     def read_data(self):
         """
-        Determines the file type (CSV or JSON) and reads the data accordingly.
+        Determine the file type and read the data accordingly.
 
         Returns:
         --------
@@ -244,98 +144,172 @@ class SheetBuddy:
             The dataset read from the file or URL.
         """
         for _ in tqdm(range(100), desc="Loading data..."):
-            time.sleep(0.05)  # Simulate some delay for progress bar
+            time.sleep(0.01)  # Simulate some delay for progress bar
+        if self.file_path_or_url.endswith('.csv'):
+            return self.read_csv()
+        if self.file_path_or_url.endswith('.json') or self.file_path_or_url.startswith("http"):
+            return self.read_json()
+        return self.read_api()
 
-        if self.file_path_or_url.endswith('.csv') or self.file_path_or_url.startswith("http"):
-            data = self.read_csv()
-        elif self.file_path_or_url.endswith('.json'):
-            data = self.read_json(self.file_path_or_url)
-        else:
-            logging.error("Unsupported file format. Please provide a CSV or JSON file.")
-            data = None
-
-        return data
-
-    def generate_eda_report(self, file_name):
+    def get_column_info(self):
         """
-        Generates an EDA report and saves it to an Excel file.
+        Retrieve information about the columns in the dataset.
 
-        Parameters:
-        -----------
-        file_name : str
-            The name of the output Excel file.
+        Returns:
+        --------
+        DataFrame
+            A DataFrame containing the column names, data types, descriptions,
+            and whether they are categorical or numerical.
         """
-        logging.info("Loading data...")
-        if self.data is not None:
-            logging.info("Data loaded successfully.")
-            logging.info("Generating report...")
+        normalized_columns = [col.lower().replace('_', ' ') for col in self.data.columns]
+        descriptions = [COLUMN_DESCRIPTIONS.get(col, None) for col in normalized_columns]
+        return pd.DataFrame({
+            'Column': self.data.columns,
+            'Data Type': self.data.dtypes,
+            'Description': descriptions,
+            'Categorical/Numerical': [
+                'Categorical' if self.data[col].dtype == 'object' else 'Numerical' for col in self.data.columns
+            ]
+        })
 
-            with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
-                # Write Column Info
-                column_info = self.get_column_info()
-                column_info.to_excel(writer, sheet_name='Column Info', index=False)
-
-                # Write Shape Info
-                shape_info = pd.DataFrame({'Shape': [self.get_shape()]})
-                shape_info.to_excel(writer, sheet_name='Shape Info', index=False)
-
-                # Write Summary Statistics
-                summary_stats = self.get_summary_statistics().reset_index()
-                summary_stats.to_excel(writer, sheet_name='Summary Statistics', index=False)
-
-                # Write Null Values
-                null_values = self.get_null_values().reset_index()
-                null_values.columns = ['Column', 'Null Values']
-                null_values.to_excel(writer, sheet_name='Null Values', index=False)
-
-                # Write Null Percentage
-                null_percentage = self.get_null_percentage().reset_index()
-                null_percentage.columns = ['Column', 'Null Percentage']
-                null_percentage.to_excel(writer, sheet_name='Null Percentage', index=False)
-
-                # Write Standard Deviation
-                std_dev = self.get_standard_deviation().reset_index()
-                std_dev.columns = ['Column', 'Standard Deviation']
-                std_dev.to_excel(writer, sheet_name='Standard Deviation', index=False)
-
-                # Write Unique Values
-                unique_values = self.get_unique_values().reset_index()
-                unique_values.columns = ['Column', 'Unique Values']
-                unique_values.to_excel(writer, sheet_name='Unique Values', index=False)
-
-                # Write Most Frequent Values
-                most_frequent_values = self.get_most_frequent_values().reset_index()
-                most_frequent_values.columns = ['Column', 'Most Frequent Value']
-                most_frequent_values.to_excel(writer, sheet_name='Most Frequent Values', index=False)
-
-                # Write Correlation Matrix
-                numerical_data = self.data.select_dtypes(include=['number'])
-                correlation_matrix = numerical_data.corr()
-                correlation_matrix.to_excel(writer, sheet_name='Correlation Matrix')
-
-                # Write Basic Mathematics
-                basic_math = self.get_basic_math().reset_index()
-                basic_math.to_excel(writer, sheet_name='Basic Mathematics', index=False)
-
-                # Style all sheets
-                workbook = writer.book
-                for sheet_name in workbook.sheetnames:
-                    sheet = workbook[sheet_name]
-                    self.style_excel_sheet(sheet)
-
-            logging.info(f"Report generated: {file_name}")
-
-        else:
-            logging.error("Failed to load data. Report generation aborted.")
-
-    def style_excel_sheet(self, sheet):
+    def get_shape(self):
         """
-        Styles the Excel sheet with formatting.
+        Retrieve the shape (dimensions) of the dataset.
+
+        Returns:
+        --------
+        tuple
+            The shape of the dataset as a tuple (rows, columns).
+        """
+        return self.data.shape
+
+    def get_summary_statistics(self):
+        """
+        Retrieve summary statistics of the dataset.
+
+        Returns:
+        --------
+        DataFrame
+            The summary statistics of the dataset.
+        """
+        try:
+            return self.data.describe()
+        except ValueError as exc:
+            logging.error("Error generating summary statistics: %s", exc)
+            return pd.DataFrame()
+
+    def get_null_values(self):
+        """
+        Retrieve the count of null values for each column.
+
+        Returns:
+        --------
+        Series
+            A series containing the count of null values for each column.
+        """
+        return self.data.isnull().sum()
+
+    def get_null_percentage(self):
+        """
+        Retrieve the percentage of null values for each column.
+
+        Returns:
+        --------
+        Series
+            A series containing the percentage of null values for each column.
+        """
+        return self.data.isnull().mean() * 100
+
+    def get_standard_deviation(self):
+        """
+        Retrieve the standard deviation for numerical columns.
+
+        Returns:
+        --------
+        Series
+            A series containing the standard deviation for each numerical column.
+        """
+        try:
+            return self.data.std()
+        except ValueError as exc:
+            logging.error("Error calculating standard deviation: %s", exc)
+            return pd.Series()
+
+    def get_unique_values(self):
+        """
+        Retrieve the count of unique values for each column.
+
+        Returns:
+        --------
+        Series
+            A series containing the count of unique values for each column.
+        """
+        return self.data.nunique()
+
+    def get_most_frequent_values(self):
+        """
+        Retrieve the most frequent value for each column.
+
+        Returns:
+        --------
+        Series
+            A series containing the most frequent value for each column.
+        """
+        try:
+            return self.data.mode().iloc[0]
+        except ValueError as exc:
+            logging.error("Error finding most frequent values: %s", exc)
+            return pd.Series()
+
+    def get_basic_math(self):
+        """
+        Retrieve basic mathematical calculations for numerical columns.
+
+        Returns:
+        --------
+        DataFrame
+            A DataFrame containing mean, median, mode, and range for each numerical column.
+        """
+        try:
+            numerical_data = self.data.select_dtypes(include=['number'])
+            if numerical_data.empty:
+                return pd.DataFrame()
+            return pd.DataFrame({
+                'Mean': numerical_data.mean(),
+                'Median': numerical_data.median(),
+                'Mode': numerical_data.mode().iloc[0],
+                'Range': numerical_data.max() - numerical_data.min()
+            })
+        except ValueError as exc:
+            logging.error("Error calculating basic mathematics: %s", exc)
+            return pd.DataFrame()
+
+    def apply_conditional_formatting(self, sheet, column, fill_color):
+        """
+        Apply conditional formatting to a column in an Excel sheet.
 
         Parameters:
         -----------
         sheet : openpyxl.worksheet.worksheet.Worksheet
-            The Excel sheet to be styled.
+            The Excel sheet to format.
+        column : str
+            The column to apply formatting to.
+        fill_color : str
+            The color to use for formatting.
+        """
+        for cell in sheet[column]:
+            if cell.row == 1:  # Skip header row
+                continue
+            cell.fill = PatternFill(start_color=fill_color, end_color=fill_color, fill_type="solid")
+
+    def style_excel_sheet(self, sheet):
+        """
+        Style an Excel sheet with header and row formatting.
+
+        Parameters:
+        -----------
+        sheet : openpyxl.worksheet.worksheet.Worksheet
+            The Excel sheet to style.
         """
         header_fill = PatternFill(start_color='4B4B4B', end_color='4B4B4B', fill_type='solid')
         header_font = Font(color='FFFFFF', bold=True, size=12)  # White font color, bold, increased size
@@ -351,132 +325,77 @@ class SheetBuddy:
                 elif cell.row % 2 == 0:  # Apply alternating row color
                     cell.fill = row_fill
 
-    def get_column_info(self):
+    def generate_report(self, file_name):
         """
-        Retrieves information about the columns in the dataset.
+        Generate an EDA report and save it to an Excel file.
 
-        Returns:
-        --------
-        DataFrame
-            A DataFrame containing the column names, data types, descriptions, and whether they are categorical or numerical.
+        Parameters:
+        -----------
+        file_name : str
+            The name of the output Excel file.
         """
-        normalized_columns = [col.lower().replace('_', ' ') for col in self.data.columns]
-        descriptions = [COLUMN_DESCRIPTIONS.get(col, None) for col in normalized_columns]
-        return pd.DataFrame({
-            'Column': self.data.columns,
-            'Data Type': self.data.dtypes,
-            'Description': descriptions,
-            'Categorical/Numerical': ['Categorical' if self.data[col].dtype == 'object' else 'Numerical' for col in self.data.columns]
-        })
+        with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
+            column_info = self.get_column_info()
+            column_info.to_excel(writer, sheet_name='Column Info', index=False)
 
-    def get_shape(self):
-        """
-        Retrieves the shape (dimensions) of the dataset.
+            shape_info = pd.DataFrame({'Shape': [self.get_shape()]})
+            shape_info.to_excel(writer, sheet_name='Shape Info', index=False)
 
-        Returns:
-        --------
-        tuple
-            The shape of the dataset as a tuple (rows, columns).
-        """
-        return self.data.shape
+            summary_stats = self.get_summary_statistics().reset_index()
+            summary_stats.to_excel(writer, sheet_name='Summary Statistics', index=False)
 
-    def get_summary_statistics(self):
-        """
-        Retrieves summary statistics of the dataset.
+            null_values = self.get_null_values().reset_index()
+            null_values.columns = ['Column', 'Null Values']
+            null_values.to_excel(writer, sheet_name='Null Values', index=False)
 
-        Returns:
-        --------
-        DataFrame
-            The summary statistics of the dataset.
-        """
-        try:
-            return self.data.describe()
-        except Exception as e:
-            logging.error(f"Error generating summary statistics: {e}")
-            return pd.DataFrame()
+            null_percentage = self.get_null_percentage().reset_index()
+            null_percentage.columns = ['Column', 'Null Percentage']
+            null_percentage.to_excel(writer, sheet_name='Null Percentage', index=False)
 
-    def get_null_values(self):
-        """
-        Retrieves the count of null values for each column.
+            std_dev = self.get_standard_deviation().reset_index()
+            std_dev.columns = ['Column', 'Standard Deviation']
+            std_dev.to_excel(writer, sheet_name='Standard Deviation', index=False)
 
-        Returns:
-        --------
-        Series
-            A series containing the count of null values for each column.
-        """
-        return self.data.isnull().sum()
+            unique_values = self.get_unique_values().reset_index()
+            unique_values.columns = ['Column', 'Unique Values']
+            unique_values.to_excel(writer, sheet_name='Unique Values', index=False)
 
-    def get_null_percentage(self):
-        """
-        Retrieves the percentage of null values for each column.
+            most_frequent_values = self.get_most_frequent_values().reset_index()
+            most_frequent_values.columns = ['Column', 'Most Frequent Value']
+            most_frequent_values.to_excel(writer, sheet_name='Most Frequent Values', index=False)
 
-        Returns:
-        --------
-        Series
-            A series containing the percentage of null values for each column.
-        """
-        return self.data.isnull().mean() * 100
-
-    def get_standard_deviation(self):
-        """
-        Retrieves the standard deviation for numerical columns.
-
-        Returns:
-        --------
-        Series
-            A series containing the standard deviation for each numerical column.
-        """
-        try:
+            # Write Correlation Matrix
             numerical_data = self.data.select_dtypes(include=['number'])
-            return numerical_data.std()
-        except Exception as e:
-            logging.error(f"Error calculating standard deviation: {e}")
-            return pd.Series()
+            if not numerical_data.empty:
+                correlation_matrix = numerical_data.corr()
+                correlation_matrix.to_excel(writer, sheet_name='Correlation Matrix')
 
-    def get_unique_values(self):
-        """
-        Retrieves the count of unique values for each column.
+            # Write Basic Mathematics
+            basic_math = self.get_basic_math().reset_index()
+            if not basic_math.empty:
+                basic_math.to_excel(writer, sheet_name='Basic Mathematics', index=False)
 
-        Returns:
-        --------
-        Series
-            A series containing the count of unique values for each column.
-        """
-        return self.data.nunique()
+            workbook = writer.book
+            for sheet_name in workbook.sheetnames:
+                sheet = workbook[sheet_name]
+                self.style_excel_sheet(sheet)
 
-    def get_most_frequent_values(self):
+    def generate_eda_report(self, output_file_name):
         """
-        Retrieves the most frequent value for each column.
+        Load data and generate the EDA report.
 
-        Returns:
-        --------
-        Series
-            A series containing the most frequent value for each column.
+        Parameters:
+        -----------
+        output_file_name : str
+            The name of the output Excel file.
         """
-        try:
-            return self.data.mode().iloc[0]
-        except Exception as e:
-            logging.error(f"Error finding most frequent values: {e}")
-            return pd.Series()
-
-    def get_basic_math(self):
-        """
-        Retrieves basic mathematical calculations for numerical columns.
-
-        Returns:
-        -------
-        DataFrame
-            A DataFrame containing mean, median, mode, and range for each numerical column.
-        """
-        try:
-            numerical_data = self.data.select_dtypes(include=['number'])
-            return pd.DataFrame({
-                'Mean': numerical_data.mean(),
-                'Median': numerical_data.median(),
-                'Mode': numerical_data.mode().iloc[0],
-                'Range': numerical_data.max() - numerical_data.min()
-            })
-        except Exception as e:
-            logging.error(f"Error calculating basic mathematics: {e}")
-            return pd.DataFrame()
-        
+        logging.info("Loading data...")
+        if self.data is not None:
+            logging.info("Data loaded successfully.")
+            logging.info("Generating report...")
+            for _ in tqdm(range(100), desc="Generating report..."):
+                time.sleep(0.01)  # Simulate some delay for progress bar
+            self.generate_report(output_file_name)
+            logging.info("Report generated: %s", output_file_name)
+        else:
+            logging.error("Failed to load data. Report generation aborted.")
