@@ -1,4 +1,7 @@
 # Version: 1.0
-# Date: 2021-09-29
+# Date: 2024-06-23
 
-from sheetbuddy import SheetBuddy
+#version :1.2.0
+# Date: 2024-06-27
+
+from .sheetbuddy import SheetBuddy
