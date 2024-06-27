@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="SheetBuddy",
-    version="1.1.6",
+    version="1.2.0",  # Updated version number
     author="Ashish Rogannagari",
     author_email="Ashishrogannagari98@gmail.com",
     description="A library for data summary and analysis from various formats such as CSV, API, URL, etc.",
