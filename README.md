@@ -1,13 +1,11 @@
 # <a name="top"></a>SheetBuddy
 
-SheetBuddy is a Python library for performing exploratory data analysis (EDA) , Data sunmmary  and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
+SheetBuddy is a Python library for performing exploratory data analysis (EDA), data summary, and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
 
 [![PyPI - Daily Downloads](https://img.shields.io/pypi/dd/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
-
-
 
 [![GitHub issues](https://img.shields.io/github/issues/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/pulls)
@@ -17,9 +15,6 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA) , 
 [![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/blob/main/LICENSE)
 [![fork](https://img.shields.io/badge/fork-red)](https://github.com/login?return_to=%2FAshishRogannagari%2FSheetBuddy)
 [![Clone](https://img.shields.io/badge/Clone-blue)](https://github.com/AshishRogannagari/sheetbuddy.git)
-
-
-
 
 ## Features
 - Data Cleaning and Preprocessing
@@ -32,6 +27,16 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA) , 
 - Visualization (Correlation Matrix, Basic Mathematics)
 - Data Export (Excel)
 
+## New in v2.0.0
+
+### Correlation Matrix Analysis
+- **Description**: Calculates the correlation matrix for numerical columns in your dataset.
+- **Benefit**: Understand the relationship between different numerical variables. Identify patterns and dependencies in your data.
+
+### Basic Mathematical Statistics
+- **Description**: Computes fundamental statistical measures such as mean, median, mode, and range for all numerical columns.
+- **Benefit**: Provides a quick overview of the central tendency and dispersion of your data. Essential for initial data exploration and identifying anomalies.
+
 ## Installation
 
 You can install SheetBuddy using `pip`:
@@ -41,7 +46,7 @@ pip install sheetbuddy
 ```
 # or
 ```bash
-pip install sheetbuddy==1.0.0
+pip install sheetbuddy==2.0.0
 ```
 
 ## Check for the lastest version
