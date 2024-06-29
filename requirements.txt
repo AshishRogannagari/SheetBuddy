@@ -1,6 +1,8 @@
+# Requirements for SheetBuddy v2.1.0 📋
+
 pandas
 requests
 openpyxl
 tqdm
-flake8
-pytest
+matplotlib
+seaborn
