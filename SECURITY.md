@@ -10,8 +10,9 @@ Use this section to tell people about which versions of your project are current
 
 | Version  | Supported          |
 | -------- | ------------------ |
+| 2.1.0    | :white_check_mark: |
+| 2.0.0    | :white_check_mark: |
 | 1.0.0    | :white_check_mark: |
-| 0.1.2    | :x:                |
 | < 0.1.0  | :x:                |
 
 ## Reporting a Vulnerability
