@@ -27,15 +27,36 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 - Visualization (Correlation Matrix, Basic Mathematics)
 - Data Export (Excel)
 
-## New in v2.0.0
+## New Features in SheetBuddy v2.1.0 🎉
 
-### Correlation Matrix Analysis
-- **Description**: Calculates the correlation matrix for numerical columns in your dataset.
-- **Benefit**: Understand the relationship between different numerical variables. Identify patterns and dependencies in your data.
+We are excited to announce the release of SheetBuddy v2.1.0, which brings several new features and enhancements to improve your data analysis experience:
 
-### Basic Mathematical Statistics
-- **Description**: Computes fundamental statistical measures such as mean, median, mode, and range for all numerical columns.
-- **Benefit**: Provides a quick overview of the central tendency and dispersion of your data. Essential for initial data exploration and identifying anomalies.
+1. **Expanded Column Descriptions 📝:**
+   - Added a comprehensive dictionary for column descriptions.
+
+2. **Enhanced Data Ingestion 🚀:**
+   - Improved methods for reading CSV, JSON, and API data.
+   - Better error handling for smoother data ingestion.
+
+3. **Advanced Data Summarization 📊:**
+   - New `get_column_info` method for detailed column information.
+   - Enhanced summary statistics for all data types.
+   - Methods to calculate null values, percentages, standard deviation, unique values, and most frequent values.
+   - `get_basic_math` method for basic calculations (mean, median, mode, range).
+
+4. **Improved Excel Formatting and Styling ✨:**
+   - Consistent formatting and styling for all Excel sheets.
+   - New methods for conditional formatting and adding text headings.
+
+5. **Visualization Enhancements 📈:**
+   - New methods for histograms, correlation heatmaps, and bar charts in Excel sheets.
+
+6. **Comprehensive Dataset Info Sheet 🗂️:**
+   - Summary sheet with dataset name, format, rows, columns, description, and data link.
+
+7. **Robust Report Generation 📝:**
+   - Comprehensive EDA report with multiple detailed sheets.
+   - Improved progress indicators and logging.
 
 ## Installation
 
@@ -46,7 +67,7 @@ pip install sheetbuddy
 ```
 # or
 ```bash
-pip install sheetbuddy==2.0.0
+pip install sheetbuddy==2.1.0
 ```
 
 ## Check for the lastest version
@@ -116,7 +137,7 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 SheetBuddy is licensed under the MIT License. See the LICENSE file for more details.
 
 
-
+We hope you enjoy these new features and improvements in SheetBuddy v2.1.0! 🚀
 
 <a href="#top" style="position:fixed;bottom:20px;right:20px;background-color:#007bff;color:white;padding:15px 20px;border-radius:25px;text-align:center;text-decoration:none;font-size:18px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);"> Back to Top ↑ </a>
 
