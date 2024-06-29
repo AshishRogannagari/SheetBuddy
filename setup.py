@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sheetbuddy",
-    version="2.0.0",
+    version="2.1.0",
     author="Ashish Rogannagari",
     author_email="Ashishrogannagari98@gmail.com",
     description="A library for data summary and analysis from various formats such as CSV, API, URL, etc.",
@@ -10,11 +10,14 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/AshishRogannagari/sheetbuddy",
     package_dir={"": "src"},
+    packages=find_packages(where="src"),
     install_requires=[
         "pandas",
         "requests",
         "openpyxl",
         "tqdm",
+        "matplotlib",
+        "seaborn",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
