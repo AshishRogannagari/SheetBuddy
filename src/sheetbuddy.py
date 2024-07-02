@@ -1,14 +1,21 @@
 """
 SheetBuddy module for performing various EDA (Exploratory Data Analysis) operations on datasets.
-"""
 
+"""
 import time
 from io import StringIO
+from io import StringIO, BytesIO
 import logging
 import requests
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 from tqdm import tqdm
-from openpyxl.styles import PatternFill, Alignment, Font
+from openpyxl import Workbook
+from openpyxl.drawing.image import Image
+from openpyxl.styles import PatternFill, Alignment, Font, Border, Side
+from scipy import stats
+import numpy as np
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -192,7 +199,10 @@ class SheetBuddy:
             The summary statistics of the dataset.
         """
         try:
-            return self.data.describe()
+            numeric_data = self.data.select_dtypes(include=['number'])
+            if numeric_data.empty:
+                return pd.DataFrame()
+            return numeric_data.describe()
         except ValueError as exc:
             logging.error("Error generating summary statistics: %s", exc)
             return pd.DataFrame()
@@ -229,7 +239,10 @@ class SheetBuddy:
             A series containing the standard deviation for each numerical column.
         """
         try:
-            return self.data.std()
+            numeric_data = self.data.select_dtypes(include=['number'])
+            if numeric_data.empty:
+                return pd.Series()
+            return numeric_data.std()
         except ValueError as exc:
             logging.error("Error calculating standard deviation: %s", exc)
             return pd.Series()
@@ -283,23 +296,55 @@ class SheetBuddy:
             logging.error("Error calculating basic mathematics: %s", exc)
             return pd.DataFrame()
 
-    def apply_conditional_formatting(self, sheet, column, fill_color):
+    def get_categorical_frequencies(self):
         """
-        Apply conditional formatting to a column in an Excel sheet.
+        Retrieve the frequency of unique values for categorical columns.
+
+        Returns:
+        --------
+        DataFrame
+            A DataFrame containing the frequency of unique values for each categorical column.
+        """
+        try:
+            categorical_data = self.data.select_dtypes(include=['object'])
+            if categorical_data.empty:
+                return pd.DataFrame()
+            freq_dict = {col: categorical_data[col].value_counts() for col in categorical_data.columns}
+            freq_df = pd.DataFrame(freq_dict)
+            return freq_df
+        except ValueError as exc:
+            logging.error("Error calculating frequencies: %s", exc)
+            return pd.DataFrame()
+
+    def detect_outliers(self, method='z-score', threshold=3):
+        """
+        Detect outliers in the dataset.
 
         Parameters:
         -----------
-        sheet : openpyxl.worksheet.worksheet.Worksheet
-            The Excel sheet to format.
-        column : str
-            The column to apply formatting to.
-        fill_color : str
-            The color to use for formatting.
+        method : str
+            The method to use for outlier detection ('z-score' or 'iqr').
+        threshold : float
+            The threshold value for detecting outliers.
+
+        Returns:
+        --------
+        DataFrame
+            A DataFrame indicating the presence of outliers in the dataset.
         """
-        for cell in sheet[column]:
-            if cell.row == 1:  # Skip header row
-                continue
-            cell.fill = PatternFill(start_color=fill_color, end_color=fill_color, fill_type="solid")
+        numeric_data = self.data.select_dtypes(include=['number'])
+        outliers = pd.DataFrame(index=numeric_data.index, columns=numeric_data.columns)
+
+        if method == 'z-score':
+            z_scores = np.abs(stats.zscore(numeric_data))
+            outliers = (z_scores > threshold)
+        elif method == 'iqr':
+            Q1 = numeric_data.quantile(0.25)
+            Q3 = numeric_data.quantile(0.75)
+            IQR = Q3 - Q1
+            outliers = (numeric_data < (Q1 - 1.5 * IQR)) | (numeric_data > (Q3 + 1.5 * IQR))
+
+        return outliers
 
     def style_excel_sheet(self, sheet):
         """
@@ -314,15 +359,206 @@ class SheetBuddy:
         header_font = Font(color='FFFFFF', bold=True, size=12)  # White font color, bold, increased size
         center_alignment = Alignment(horizontal='center', vertical='center')
         row_fill = PatternFill(start_color='D3D3D3', end_color='D3D3D3', fill_type='solid')
+        border = Border(left=Side(style='thin', color='000000'), 
+                        right=Side(style='thin', color='000000'), 
+                        top=Side(style='thin', color='000000'), 
+                        bottom=Side(style='thin', color='000000'))
 
         for row in sheet.iter_rows():
             for cell in row:
                 cell.alignment = center_alignment
+                cell.border = border
                 if cell.row == 1:  # Header row
                     cell.fill = header_fill
                     cell.font = header_font
                 elif cell.row % 2 == 0:  # Apply alternating row color
                     cell.fill = row_fill
+
+    def add_text_heading(self, sheet, text, start_row):
+        """
+        Add a text heading to the Excel sheet.
+
+        Parameters:
+        -----------
+        sheet : openpyxl.worksheet.worksheet.Worksheet
+            The Excel sheet to add the text heading to.
+        text : str
+            The text for the heading.
+        start_row : int
+            The row to start placing the heading.
+        """
+        cell = sheet.cell(row=start_row, column=1)
+        cell.value = text
+        cell.font = Font(size=14, bold=True)
+        return start_row + 1
+
+    def add_histogram(self, sheet, data, column, start_row, color):
+        """
+        Add a histogram chart to the Excel sheet.
+
+        Parameters:
+        -----------
+        sheet : openpyxl.worksheet.worksheet.Worksheet
+            The Excel sheet to add the chart to.
+        data : DataFrame
+            The data for the histogram.
+        column : str
+            The column to plot in the histogram.
+        start_row : int
+            The row to start placing the chart.
+        color : str
+            The color to use for the histogram bars.
+        """
+        if data[column].dropna().empty:
+            return start_row
+
+        start_row = self.add_text_heading(sheet, f'Histogram of {column}', start_row)
+
+        plt.figure(figsize=(10, 6))
+        plt.hist(data[column].dropna(), bins=30, edgecolor='k', alpha=0.7, color=color)
+        plt.title(f'Histogram of {column}')
+        plt.xlabel(column)
+        plt.ylabel('Frequency')
+
+        image_stream = BytesIO()
+        plt.savefig(image_stream, format='png')
+        plt.close()
+        image_stream.seek(0)
+
+        img = Image(image_stream)
+        img.anchor = f'A{start_row}'
+        sheet.add_image(img)
+
+        return start_row + 25
+
+    def add_correlation_heatmap(self, sheet, data, start_row):
+        """
+        Add a correlation heatmap to the Excel sheet.
+
+        Parameters:
+        -----------
+        sheet : openpyxl.worksheet.worksheet.Worksheet
+            The Excel sheet to add the heatmap to.
+        data : DataFrame
+            The data for the heatmap.
+        start_row : int
+            The row to start placing the heatmap.
+        """
+        numeric_data = data.select_dtypes(include=['number'])
+        if numeric_data.empty:
+            return start_row
+
+        start_row = self.add_text_heading(sheet, 'Correlation Heatmap', start_row)
+
+        plt.figure(figsize=(12, 10))
+        correlation_matrix = numeric_data.corr()
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+        plt.title('Correlation Heatmap')
+
+        image_stream = BytesIO()
+        plt.savefig(image_stream, format='png')
+        plt.close()
+        image_stream.seek(0)
+
+        img = Image(image_stream)
+        img.anchor = f'A{start_row}'
+        sheet.add_image(img)
+
+        return start_row + 35
+
+    def add_outliers_plot(self, sheet, data, column, start_row):
+        """
+        Add a boxplot to visualize outliers in the Excel sheet.
+
+        Parameters:
+        -----------
+        sheet : openpyxl.worksheet.worksheet.Worksheet
+            The Excel sheet to add the chart to.
+        data : DataFrame
+            The data for the boxplot.
+        column : str
+            The column to plot in the boxplot.
+        start_row : int
+            The row to start placing the chart.
+        """
+        if data[column].dropna().empty:
+            return start_row
+
+        start_row = self.add_text_heading(sheet, f'Outliers in {column}', start_row)
+
+        plt.figure(figsize=(10, 6))
+        sns.boxplot(data=data, x=column)
+        plt.title(f'Outliers in {column}')
+        plt.xlabel(column)
+
+        image_stream = BytesIO()
+        plt.savefig(image_stream, format='png')
+        plt.close()
+        image_stream.seek(0)
+
+        img = Image(image_stream)
+        img.anchor = f'A{start_row}'
+        sheet.add_image(img)
+
+        return start_row + 25
+
+    def add_dataset_info(self, workbook):
+        """
+        Add a Dataset Info sheet to the workbook.
+
+        Parameters:
+        -----------
+        workbook : openpyxl.Workbook
+            The workbook to add the Dataset Info sheet to.
+        """
+        sheet = workbook.create_sheet(title='Dataset Info', index=0)
+
+        # Define the header and data
+        headers = ['Name of the dataset', 'Format of the dataset', 'Number of rows', 'Number of columns', 'Dataset description', 'Data link']
+        values = [
+            'Dataset Name',  # Replace with actual dataset name if available
+            'CSV' if self.file_path_or_url.endswith('.csv') else 'JSON',
+            self.data.shape[0],
+            self.data.shape[1],
+            'Description of the dataset',  # Replace with actual description if available
+            self.file_path_or_url if self.file_path_or_url.startswith('http') else 'N/A'
+        ]
+
+        # Add a title
+        sheet['A1'] = 'Data Summary'
+        sheet['A1'].font = Font(size=18, bold=True)
+        sheet['A1'].alignment = Alignment(horizontal='center')
+        sheet.merge_cells('A1:B1')
+
+        # Set column widths
+        column_widths = [30, 45]
+
+        for i, width in enumerate(column_widths, start=1):
+            sheet.column_dimensions[chr(64 + i)].width = width
+
+        # Add headers and values
+        for row, (header, value) in enumerate(zip(headers, values), start=2):
+            cell_header = sheet.cell(row=row, column=1, value=header)
+            cell_header.font = Font(bold=True, size=12)
+            cell_header.fill = PatternFill(start_color='FFFF99', end_color='FFFF99', fill_type='solid')
+            cell_header.alignment = Alignment(horizontal='left', vertical='center')
+
+            cell_value = sheet.cell(row=row, column=2, value=value)
+            cell_value.font = Font(size=12)
+            cell_value.alignment = Alignment(horizontal='left', vertical='center')
+            if headers[row-2] == 'Data link' and value != 'N/A':
+                cell_value.hyperlink = value
+                cell_value.style = "Hyperlink"
+
+        # Apply black border to the entire table
+        border = Border(left=Side(style='thin', color='000000'), 
+                        right=Side(style='thin', color='000000'), 
+                        top=Side(style='thin', color='000000'), 
+                        bottom=Side(style='thin', color='000000'))
+
+        for row in sheet.iter_rows(min_row=1, max_row=len(headers) + 2, min_col=1, max_col=2):
+            for cell in row:
+                cell.border = border
 
     def generate_report(self, file_name):
         """
@@ -333,51 +569,86 @@ class SheetBuddy:
         file_name : str
             The name of the output Excel file.
         """
-        with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
-            column_info = self.get_column_info()
-            column_info.to_excel(writer, sheet_name='Column Info', index=False)
+        try:
+            with pd.ExcelWriter(file_name, engine='openpyxl') as writer:
+                # Add Dataset Info sheet
+                workbook = writer.book
+                self.add_dataset_info(workbook)
 
-            shape_info = pd.DataFrame({'Shape': [self.get_shape()]})
-            shape_info.to_excel(writer, sheet_name='Shape Info', index=False)
+                # Add Column Info sheet
+                column_info = self.get_column_info()
+                column_info.to_excel(writer, sheet_name='Column Info', index=False)
 
-            summary_stats = self.get_summary_statistics().reset_index()
-            summary_stats.to_excel(writer, sheet_name='Summary Statistics', index=False)
+                # Add Shape Info sheet
+                shape_info = pd.DataFrame({'Shape': [self.get_shape()]})
+                shape_info.to_excel(writer, sheet_name='Shape Info', index=False)
 
-            null_values = self.get_null_values().reset_index()
-            null_values.columns = ['Column', 'Null Values']
-            null_values.to_excel(writer, sheet_name='Null Values', index=False)
+                # Add Summary Statistics sheet
+                summary_stats = self.get_summary_statistics().reset_index()
+                summary_stats.to_excel(writer, sheet_name='Summary Statistics', index=False)
 
-            null_percentage = self.get_null_percentage().reset_index()
-            null_percentage.columns = ['Column', 'Null Percentage']
-            null_percentage.to_excel(writer, sheet_name='Null Percentage', index=False)
+                # Add Null Values sheet
+                null_values = self.get_null_values().reset_index()
+                null_values.columns = ['Column', 'Null Values']
+                null_values.to_excel(writer, sheet_name='Null Values', index=False)
 
-            std_dev = self.get_standard_deviation().reset_index()
-            std_dev.columns = ['Column', 'Standard Deviation']
-            std_dev.to_excel(writer, sheet_name='Standard Deviation', index=False)
+                # Add Null Percentage sheet
+                null_percentage = self.get_null_percentage().reset_index()
+                null_percentage.columns = ['Column', 'Null Percentage']
+                null_percentage.to_excel(writer, sheet_name='Null Percentage', index=False)
 
-            unique_values = self.get_unique_values().reset_index()
-            unique_values.columns = ['Column', 'Unique Values']
-            unique_values.to_excel(writer, sheet_name='Unique Values', index=False)
+                # Add Standard Deviation sheet
+                std_dev = self.get_standard_deviation().reset_index()
+                std_dev.columns = ['Column', 'Standard Deviation']
+                std_dev.to_excel(writer, sheet_name='Standard Deviation', index=False)
 
-            most_frequent_values = self.get_most_frequent_values().reset_index()
-            most_frequent_values.columns = ['Column', 'Most Frequent Value']
-            most_frequent_values.to_excel(writer, sheet_name='Most Frequent Values', index=False)
+                # Add Unique Values sheet
+                unique_values = self.get_unique_values().reset_index()
+                unique_values.columns = ['Column', 'Unique Values']
+                unique_values.to_excel(writer, sheet_name='Unique Values', index=False)
 
-            # Write Correlation Matrix
-            numerical_data = self.data.select_dtypes(include=['number'])
-            if not numerical_data.empty:
-                correlation_matrix = numerical_data.corr()
-                correlation_matrix.to_excel(writer, sheet_name='Correlation Matrix')
+                # Add Most Frequent Values sheet
+                most_frequent_values = self.get_most_frequent_values().reset_index()
+                most_frequent_values.columns = ['Column', 'Most Frequent Value']
+                most_frequent_values.to_excel(writer, sheet_name='Most Frequent Values', index=False)
 
-            # Write Basic Mathematics
-            basic_math = self.get_basic_math().reset_index()
-            if not basic_math.empty:
-                basic_math.to_excel(writer, sheet_name='Basic Mathematics', index=False)
+                # Add Categorical Frequencies sheet
+                categorical_frequencies = self.get_categorical_frequencies().reset_index()
+                categorical_frequencies.to_excel(writer, sheet_name='Categorical Frequencies', index=False)
 
-            workbook = writer.book
-            for sheet_name in workbook.sheetnames:
-                sheet = workbook[sheet_name]
-                self.style_excel_sheet(sheet)
+                # Add Correlation Matrix sheet
+                numerical_data = self.data.select_dtypes(include=['number'])
+                if not numerical_data.empty:
+                    correlation_matrix = numerical_data.corr()
+                    correlation_matrix.to_excel(writer, sheet_name='Correlation Matrix')
+
+                # Add Basic Mathematics sheet
+                basic_math = self.get_basic_math().reset_index()
+                if not basic_math.empty:
+                    basic_math.to_excel(writer, sheet_name='Basic Mathematics', index=False)
+
+                # Style the sheets
+                for sheet_name in workbook.sheetnames:
+                    sheet = workbook[sheet_name]
+                    self.style_excel_sheet(sheet)
+
+                # Add EDA sheet with visualizations
+                eda_sheet = workbook.create_sheet(title='Visualizations')
+                start_row = 1
+                colors = ['blue', 'green', 'red', 'purple', 'orange']
+                for i, column in enumerate(numerical_data.columns):
+                    color = colors[i % len(colors)]
+                    start_row = self.add_histogram(eda_sheet, self.data, column, start_row, color)
+                    start_row += 6  # Additional spacing after each chart
+
+                for column in numerical_data.columns:
+                    start_row = self.add_outliers_plot(eda_sheet, self.data, column, start_row)
+                    start_row += 6  # Additional spacing after each chart
+
+                self.add_correlation_heatmap(eda_sheet, self.data, start_row)
+
+        except Exception as e:
+            logging.error("An error occurred during report generation: %s", e)
 
     def generate_eda_report(self, output_file_name):
         """
