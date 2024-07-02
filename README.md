@@ -49,6 +49,8 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 - **Feature:** New Dataset Info sheet with a summary of the dataset, including name, format, number of rows and columns, description, and data link.
 - **Implementation:** `add_dataset_info` method to create a structured summary of the dataset.
 
+- For more details, please refer to the [SheetBuddy Version 3.1.1 Documentation](https://github.com/AshishRogannagari/SheetBuddy/wiki/SheetBuddy-Version-3.1.1-Documentation).
+
 ### Requirements 📦
 
 To use SheetBuddy, ensure you have the following dependencies:
