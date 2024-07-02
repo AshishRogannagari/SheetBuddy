@@ -26,17 +26,50 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 - Visualization (Correlation Matrix, Basic Mathematics)
 - Data Export (Excel)
 
-## Release Notes for SheetBuddy v2.0.0 🚀
+### New Features in Version 3.1.1 🚀
 
-### New Features:
+#### Outlier Detection and Visualization 📊
 
-1. **📊 Correlation Matrix Sheet**:
-   - Automatically generate and save a correlation matrix for numerical columns in your Excel report. Easily spot relationships and dependencies between variables.
+- **Feature:** Detect outliers in numerical columns using z-score or IQR methods.
+- **Implementation:** New methods `detect_outliers` and `add_outliers_plot` to identify and visualize outliers with boxplots in the EDA sheet.
 
-2. **🧮 Basic Mathematics Sheet**:
-   - Get essential statistics like mean, median, mode, and range for your numerical data. Now included in a separate sheet for quick insights into data distribution and central tendencies.
+#### Enhanced EDA Sheet Visualizations 🖼️
 
-#### Python Version Requirements:
+- **Feature:** Comprehensive visualizations in the EDA sheet:
+  - Histograms for numerical columns.
+  - Boxplots for visualizing outliers.
+  - Correlation heatmaps for understanding relationships.
+- **Implementation:** Integrated methods to create these visualizations in the EDA sheet.
+
+#### Custom Text Headings for Visualizations 📝
+- **Feature:** Descriptive titles for each visualization section to improve readability.
+- **Implementation:** `add_text_heading` method to add custom text headings to each visualization.
+
+#### Structured Dataset Summary 🗂️
+- **Feature:** New Dataset Info sheet with a summary of the dataset, including name, format, number of rows and columns, description, and data link.
+- **Implementation:** `add_dataset_info` method to create a structured summary of the dataset.
+
+### Requirements 📦
+
+To use SheetBuddy, ensure you have the following dependencies:
+
+```
+pandas==1.3.3
+requests==2.26.0
+openpyxl==3.0.9
+tqdm==4.62.3
+matplotlib==3.4.3
+seaborn==0.11.2
+scipy==1.7.1
+```
+
+### Note 📝
+
+This library is designed specifically for numerical data analysis. Ensure your datasets are primarily numerical to make the most of SheetBuddy's capabilities.
+
+Enjoy the new features and improvements! 🎉
+
+### Python Version Requirements:
 - This version of SheetBuddy requires Python 3.7 or higher.
 
 Upgrade now to leverage these powerful new features and make your data analysis even more insightful! 📈✨
@@ -51,7 +84,7 @@ pip install sheetbuddy
 # or
 
 ```bash
-pip install sheetbuddy==2.0.0
+pip install sheetbuddy==3.1.1
 ```
 
 ## Check for the lastest version
@@ -121,7 +154,7 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 SheetBuddy is licensed under the MIT License. See the LICENSE file for more details.
 
 
-We hope you enjoy these new features and improvements in SheetBuddy v2.0.0 ! 🚀
+We hope you enjoy these new features and improvements in SheetBuddy v3.1.1 ! 🚀
 
 <a href="#top" style="position:fixed;bottom:20px;right:20px;background-color:#007bff;color:white;padding:15px 20px;border-radius:25px;text-align:center;text-decoration:none;font-size:18px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);"> Back to Top ↑ </a>
 
