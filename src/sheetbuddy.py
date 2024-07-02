@@ -55,7 +55,6 @@ COLUMN_DESCRIPTIONS = {
     'session': 'The session identifier for the record.',
 }
 
-
 class SheetBuddy:
     """
     A class to handle various EDA (Exploratory Data Analysis) operations on datasets.

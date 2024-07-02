@@ -1,5 +1,5 @@
-# Requirements for SheetBuddy v2.1.0 📋
-
+# Requirements for SheetBuddy v2.0.0 📋
+numpy
 pandas
 requests
 openpyxl

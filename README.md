@@ -27,9 +27,9 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 - Visualization (Correlation Matrix, Basic Mathematics)
 - Data Export (Excel)
 
-## New Features in SheetBuddy v2.1.1 🎉
+## New Features in SheetBuddy v2.0.0 🎉
 
-We are excited to announce the release of SheetBuddy v2.1.1, which brings several new features and enhancements to improve your data analysis experience:
+We are excited to announce the release of SheetBuddy v2.0.0, which brings several new features and enhancements to improve your data analysis experience:
 
 1. **Expanded Column Descriptions 📝:**
    - Added a comprehensive dictionary for column descriptions.
@@ -67,7 +67,7 @@ pip install sheetbuddy
 ```
 # or
 ```bash
-pip install sheetbuddy==2.1.1
+pip install sheetbuddy==2.0.0
 ```
 
 ## Check for the lastest version
@@ -137,7 +137,7 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 SheetBuddy is licensed under the MIT License. See the LICENSE file for more details.
 
 
-We hope you enjoy these new features and improvements in SheetBuddy v2.1.1! 🚀
+We hope you enjoy these new features and improvements in SheetBuddy v2.0.0 ! 🚀
 
 <a href="#top" style="position:fixed;bottom:20px;right:20px;background-color:#007bff;color:white;padding:15px 20px;border-radius:25px;text-align:center;text-decoration:none;font-size:18px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);"> Back to Top ↑ </a>
 
