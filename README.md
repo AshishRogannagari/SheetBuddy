@@ -2,7 +2,7 @@
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA), data summary, and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
 
-[![PyPI - Daily Downloads](https://img.shields.io/pypi/dd/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
+[![PyPI - Daily Downloads](https://img.shields.io/pypi/dm/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
@@ -14,7 +14,6 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 [![GitHub stars](https://img.shields.io/github/stars/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/stargazers)
 [![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/blob/main/LICENSE)
 [![fork](https://img.shields.io/badge/fork-red)](https://github.com/login?return_to=%2FAshishRogannagari%2FSheetBuddy)
-[![Clone](https://img.shields.io/badge/Clone-blue)](https://github.com/AshishRogannagari/sheetbuddy.git)
 
 ## Features
 - Data Cleaning and Preprocessing
@@ -27,36 +26,20 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 - Visualization (Correlation Matrix, Basic Mathematics)
 - Data Export (Excel)
 
-## New Features in SheetBuddy v2.0.0 🎉
+## Release Notes for SheetBuddy v2.0.0 🚀
 
-We are excited to announce the release of SheetBuddy v2.0.0, which brings several new features and enhancements to improve your data analysis experience:
+### New Features:
 
-1. **Expanded Column Descriptions 📝:**
-   - Added a comprehensive dictionary for column descriptions.
+1. **📊 Correlation Matrix Sheet**:
+   - Automatically generate and save a correlation matrix for numerical columns in your Excel report. Easily spot relationships and dependencies between variables.
 
-2. **Enhanced Data Ingestion 🚀:**
-   - Improved methods for reading CSV, JSON, and API data.
-   - Better error handling for smoother data ingestion.
+2. **🧮 Basic Mathematics Sheet**:
+   - Get essential statistics like mean, median, mode, and range for your numerical data. Now included in a separate sheet for quick insights into data distribution and central tendencies.
 
-3. **Advanced Data Summarization 📊:**
-   - New `get_column_info` method for detailed column information.
-   - Enhanced summary statistics for all data types.
-   - Methods to calculate null values, percentages, standard deviation, unique values, and most frequent values.
-   - `get_basic_math` method for basic calculations (mean, median, mode, range).
+#### Python Version Requirements:
+- This version of SheetBuddy requires Python 3.7 or higher.
 
-4. **Improved Excel Formatting and Styling ✨:**
-   - Consistent formatting and styling for all Excel sheets.
-   - New methods for conditional formatting and adding text headings.
-
-5. **Visualization Enhancements 📈:**
-   - New methods for histograms, correlation heatmaps, and bar charts in Excel sheets.
-
-6. **Comprehensive Dataset Info Sheet 🗂️:**
-   - Summary sheet with dataset name, format, rows, columns, description, and data link.
-
-7. **Robust Report Generation 📝:**
-   - Comprehensive EDA report with multiple detailed sheets.
-   - Improved progress indicators and logging.
+Upgrade now to leverage these powerful new features and make your data analysis even more insightful! 📈✨
 
 ## Installation
 
@@ -66,6 +49,7 @@ You can install SheetBuddy using `pip`:
 pip install sheetbuddy
 ```
 # or
+
 ```bash
 pip install sheetbuddy==2.0.0
 ```
