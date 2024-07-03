@@ -13,7 +13,8 @@ SheetBuddy is a Python library for performing exploratory data analysis (EDA), d
 [![GitHub forks](https://img.shields.io/github/forks/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/network/members)
 [![GitHub stars](https://img.shields.io/github/stars/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/stargazers)
 [![GitHub](https://img.shields.io/github/license/AshishRogannagari/sheetbuddy)](https://github.com/AshishRogannagari/sheetbuddy/blob/main/LICENSE)
-[![fork](https://img.shields.io/badge/fork-red)](https://github.com/login?return_to=%2FAshishRogannagari%2FSheetBuddy)
+![PyPI - Format](https://img.shields.io/pypi/status/sheetbuddy)
+
 
 ## Features
 - Data Cleaning and Preprocessing
