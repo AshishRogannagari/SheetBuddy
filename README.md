@@ -1,3 +1,7 @@
+<img src="https://github.com/AshishRogannagari/SheetBuddy/assets/125127793/4c3ecb06-e2c9-4fe4-b79f-3d69c8bf9987" alt="SheetBuddy Logo" width="120%" height="260">
+
+</a>
+
 # <a name="top"></a>SheetBuddy
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA), data summary, and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
