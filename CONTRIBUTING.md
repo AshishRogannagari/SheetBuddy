@@ -87,7 +87,10 @@ Please follow these steps to have your contribution considered by the maintainer
 ### Coding Style
 
 - Follow PEP 8 guidelines for Python code.
+
 - Use descriptive variable names.
+
 - Write docstrings for all functions and classes.
+
 
 Happy contributing! 🚀
