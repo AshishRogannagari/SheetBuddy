@@ -2,11 +2,13 @@
 
 </a>
 
-# <a name="top"></a>SheetBuddy
+# <a name="top"></a>SheetBuddy [![PyPI Downloads](https://static.pepy.tech/badge/sheetbuddy)](https://pepy.tech/projects/sheetbuddy)
+
 
 SheetBuddy is a Python library for performing exploratory data analysis (EDA), data summary, and generating comprehensive reports in Excel format. It supports reading data from CSV files, JSON files, and APIs.
-![PyPI - Downloads](https://img.shields.io/pypi/dm/sheetbuddy)
 
+
+![PyPI - Downloads](https://img.shields.io/pypi/dm/sheetbuddy)
 [![PyPI - Version](https://img.shields.io/pypi/v/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![PyPI - License](https://img.shields.io/pypi/l/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/sheetbuddy)](https://pypi.org/project/sheetbuddy/)
