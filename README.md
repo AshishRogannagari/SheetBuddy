@@ -24,10 +24,10 @@ It supports **CSV, JSON, and API** data sources, making it a must-have for **dat
 ---
 
 ## 🎯 New in Version 3.1.1  
-📈 **📊 Outlier Detection & Boxplots** – Detect outliers using **Z-score/IQR** and visualize them.  
-📈 **📈 Correlation Heatmaps & Histograms** – Automatic visual insights in EDA reports.  
-📈 **📝 Structured Dataset Summary** – **New ‘Dataset Info’ sheet** in reports for clarity.  
-📈 **🎨 Conditional Formatting** – Makes reports more readable and professional.  
+ **📊 Outlier Detection & Boxplots** – Detect outliers using **Z-score/IQR** and visualize them.  
+ **📈 Correlation Heatmaps & Histograms** – Automatic visual insights in EDA reports.  
+ **📝 Structured Dataset Summary** – **New ‘Dataset Info’ sheet** in reports for clarity.  
+ **🎨 Conditional Formatting** – Makes reports more readable and professional.  
 
 📚 **[Full Documentation Here](https://github.com/AshishRogannagari/SheetBuddy/wiki/SheetBuddy-Version-3.1.1-Documentation)**  
 
