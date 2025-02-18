@@ -159,7 +159,7 @@ sb.generate_eda_report(output_file, title="My Custom Report", theme="dark")
 <details>
   <summary>✅ How do I install SheetBuddy?</summary>
   <p><strong>Answer:</strong> Install it using pip: Pip install sheetbuddy </p>
-
+</details>
 
 
  📌 Roadmap & Upcoming Features
