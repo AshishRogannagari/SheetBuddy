@@ -43,7 +43,7 @@ pip install sheetbuddy
 💡 To upgrade to the latest version:  
 
 ```bash
-pip install --upgrade sheetbuddy
+pip install sheetbuddy --upgrade 
 ```
 
 ---
