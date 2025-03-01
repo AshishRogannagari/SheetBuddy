@@ -1,1 +1,13 @@
+# Requirements for SheetBuddy v3.1.1 📋
+numpy
+pandas
+requests
+openpyxl
+tqdm
+matplotlib
+seaborn
+scipy
 
+# Sphinx dependencies for documentation
+sphinx
+sphinx-rtd-theme
