@@ -17,6 +17,7 @@ release = '3.1.1'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'sphinx.ext.autosummary', 
     'sphinx.ext.viewcode',
 ]
 

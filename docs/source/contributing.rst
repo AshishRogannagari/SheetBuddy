@@ -8,6 +8,7 @@ We welcome contributions! Here's how you can help:
 .. code-block:: bash
 
    git clone https://github.com/AshishRogannagari/SheetBuddy.git
+   
    cd SheetBuddy
 
 ### 📌 2. Create a Virtual Environment

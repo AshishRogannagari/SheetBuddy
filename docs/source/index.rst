@@ -10,5 +10,8 @@ SheetBuddy is a Python library that helps automate **Exploratory Data Analysis (
    installation
    usage
    api
+   modules
    contributing
    faq
+
+
