@@ -2,7 +2,11 @@
 
 import os
 import sys
+
+# Append the parent directory to Python's path
 sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../src"))  # Add the src directory
+
 
 # Project information
 project = 'SheetBuddy'
