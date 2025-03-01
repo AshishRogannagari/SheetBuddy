@@ -17,7 +17,7 @@ It supports **CSV, JSON, and API** data sources, making it a must-have for **dat
 💚 **Instant EDA Reports** – Summary statistics, missing values, and visualizations in one go.  
 💚 **Outlier Detection** – Identifies and visualizes outliers using Z-score and IQR methods.  
 💚 **Supports Multiple Data Formats** – Works with **CSV, JSON, and API** datasets.  
-💚 **Excel Styling & Formatting** – Well-structured reports with tables and insights.  
+💚 **Excel Styling & Formatting** – Well structured reports with tables and insights.  
 💚 **Correlation & Distribution Visuals** – Includes **heatmaps, histograms, boxplots**, and more.  
 💚 **Fast & Lightweight** – Optimized for quick analysis with minimal dependencies.  
 
