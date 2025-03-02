@@ -1,0 +1,6 @@
+﻿sheetbuddy.SheetBuddy.read\_json
+================================
+
+.. currentmodule:: sheetbuddy
+
+.. automethod:: SheetBuddy.read_json

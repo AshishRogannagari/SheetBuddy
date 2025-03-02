@@ -1,0 +1,6 @@
+﻿sheetbuddy.SheetBuddy.read\_csv
+===============================
+
+.. currentmodule:: sheetbuddy
+
+.. automethod:: SheetBuddy.read_csv

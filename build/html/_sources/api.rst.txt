@@ -1,8 +1,14 @@
 API Reference
 =============
 
-.. automodule:: sheetbuddy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
+The following API functions are available:
+
+.. autosummary::
+   :toctree: _autosummary
+   :recursive:
+
+   sheetbuddy.SheetBuddy.generate_eda_report
+   sheetbuddy.SheetBuddy.get_summary_statistics
+   sheetbuddy.SheetBuddy.detect_outliers
+   sheetbuddy.SheetBuddy.read_csv
+   sheetbuddy.SheetBuddy.read_json

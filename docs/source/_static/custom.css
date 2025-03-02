@@ -1,0 +1,16 @@
+img {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    /* Ensures wide display */
+    height: auto;
+    /* Maintains aspect ratio */
+    max-height: 220px;
+    /* Controls height to maintain rectangular shape */
+    object-fit: contain;
+    /* Ensures full image visibility */
+    margin: 0 auto;
+    /* Centers the image */
+    border-radius: 10px;
+    /* Optional: Slightly rounded corners for better look */
+}

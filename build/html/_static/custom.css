@@ -1,1 +1,10 @@
-/* This file intentionally left blank. */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Maintains aspect ratio */
+    object-fit: cover;
+    /* Ensures it fills the space */
+    max-height: 350px;
+    /* Controls height */
+}

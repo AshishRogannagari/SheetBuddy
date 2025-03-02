@@ -1,100 +1,399 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modules &mdash; SheetBuddy 3.1.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modules &#8212; SheetBuddy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=796a81b5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=2d67777c"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="src package" href="src.html" />
-    <link rel="prev" title="API Reference" href="api.html" /> 
-</head>
+    <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
+    <link rel="prev" title="Using SheetBuddy" href="usage.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            SheetBuddy
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">SheetBuddy</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to SheetBuddy!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src.html">src package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using SheetBuddy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to SheetBuddy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact &amp; Author Information</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">SheetBuddy</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Modules</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/AshishRogannagari/SheetBuddy" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AshishRogannagari/SheetBuddy/issues/new?title=Issue%20on%20page%20%2Fmodules.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/modules.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modules</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sheetbuddy-module">SheetBuddy Module</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="modules">
-<h1>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h1>
+<h1>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h1>
+<p>This section provides an overview of the core module <strong>SheetBuddy</strong> and its available methods.</p>
+<section id="sheetbuddy-module">
+<h2>SheetBuddy Module<a class="headerlink" href="#sheetbuddy-module" title="Link to this heading">#</a></h2>
 <p>SheetBuddy module for performing various EDA (Exploratory Data Analysis) operations on datasets.</p>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sheetbuddy.</span></span><span class="sig-name descname"><span class="pre">SheetBuddy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path_or_url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sheetbuddy.</span></span><span class="sig-name descname"><span class="pre">SheetBuddy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path_or_url</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to handle various EDA (Exploratory Data Analysis) operations on datasets.</p>
 <section id="attributes">
-<h2>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>file_path_or_url<span class="classifier">str</span></dt><dd><p>The file path or URL to the dataset.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">add_correlation_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.add_correlation_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">add_correlation_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a correlation heatmap to the Excel sheet.</p>
 <section id="parameters">
-<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>sheet<span class="classifier">openpyxl.worksheet.worksheet.Worksheet</span></dt><dd><p>The Excel sheet to add the heatmap to.</p>
 </dd>
@@ -108,10 +407,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">add_dataset_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workbook</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.add_dataset_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">add_dataset_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workbook</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a Dataset Info sheet to the workbook.</p>
 <section id="id1">
-<h3>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>workbook<span class="classifier">openpyxl.Workbook</span></dt><dd><p>The workbook to add the Dataset Info sheet to.</p>
 </dd>
@@ -121,10 +420,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">add_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.add_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">add_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a histogram chart to the Excel sheet.</p>
 <section id="id2">
-<h3>Parameters:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>sheet<span class="classifier">openpyxl.worksheet.worksheet.Worksheet</span></dt><dd><p>The Excel sheet to add the chart to.</p>
 </dd>
@@ -142,10 +441,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">add_outliers_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.add_outliers_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">add_outliers_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a boxplot to visualize outliers in the Excel sheet.</p>
 <section id="id3">
-<h3>Parameters:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>sheet<span class="classifier">openpyxl.worksheet.worksheet.Worksheet</span></dt><dd><p>The Excel sheet to add the chart to.</p>
 </dd>
@@ -161,10 +460,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">add_text_heading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.add_text_heading"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">add_text_heading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_row</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add a text heading to the Excel sheet.</p>
 <section id="id4">
-<h3>Parameters:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>sheet<span class="classifier">openpyxl.worksheet.worksheet.Worksheet</span></dt><dd><p>The Excel sheet to add the text heading to.</p>
 </dd>
@@ -178,10 +477,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">detect_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z-score'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.detect_outliers"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">detect_outliers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z-score'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Detect outliers in the dataset.</p>
 <section id="id5">
-<h3>Parameters:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>method<span class="classifier">str</span></dt><dd><p>The method to use for outlier detection (‘z-score’ or ‘iqr’).</p>
 </dd>
@@ -190,7 +489,7 @@
 </dl>
 </section>
 <section id="returns">
-<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>A DataFrame indicating the presence of outliers in the dataset.</p>
 </dd>
@@ -200,10 +499,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">generate_eda_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.generate_eda_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">generate_eda_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Load data and generate the EDA report.</p>
 <section id="id6">
-<h3>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>output_file_name<span class="classifier">str</span></dt><dd><p>The name of the output Excel file.</p>
 </dd>
@@ -213,10 +512,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">generate_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.generate_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">generate_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Generate an EDA report and save it to an Excel file.</p>
 <section id="id7">
-<h3>Parameters:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>file_name<span class="classifier">str</span></dt><dd><p>The name of the output Excel file.</p>
 </dd>
@@ -226,10 +525,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_basic_math</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_basic_math"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_basic_math</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve basic mathematical calculations for numerical columns.</p>
 <section id="id8">
-<h3>Returns:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>A DataFrame containing mean, median, mode, and range for each numerical column.</p>
 </dd>
@@ -239,10 +538,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_categorical_frequencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_categorical_frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_categorical_frequencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the frequency of unique values for categorical columns.</p>
 <section id="id9">
-<h3>Returns:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>A DataFrame containing the frequency of unique values for each categorical column.</p>
 </dd>
@@ -252,10 +551,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_column_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_column_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_column_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve information about the columns in the dataset.</p>
 <section id="id10">
-<h3>Returns:<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>A DataFrame containing the column names, data types, descriptions,
 and whether they are categorical or numerical.</p>
@@ -266,10 +565,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_most_frequent_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_most_frequent_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_most_frequent_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the most frequent value for each column.</p>
 <section id="id11">
-<h3>Returns:<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>Series</dt><dd><p>A series containing the most frequent value for each column.</p>
 </dd>
@@ -279,10 +578,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_null_percentage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_null_percentage"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_null_percentage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the percentage of null values for each column.</p>
 <section id="id12">
-<h3>Returns:<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>Series</dt><dd><p>A series containing the percentage of null values for each column.</p>
 </dd>
@@ -292,10 +591,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_null_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_null_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_null_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the count of null values for each column.</p>
 <section id="id13">
-<h3>Returns:<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>Series</dt><dd><p>A series containing the count of null values for each column.</p>
 </dd>
@@ -305,10 +604,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the shape (dimensions) of the dataset.</p>
 <section id="id14">
-<h3>Returns:<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>tuple</dt><dd><p>The shape of the dataset as a tuple (rows, columns).</p>
 </dd>
@@ -318,10 +617,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_standard_deviation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_standard_deviation"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_standard_deviation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the standard deviation for numerical columns.</p>
 <section id="id15">
-<h3>Returns:<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>Series</dt><dd><p>A series containing the standard deviation for each numerical column.</p>
 </dd>
@@ -331,10 +630,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_summary_statistics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_summary_statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_summary_statistics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve summary statistics of the dataset.</p>
 <section id="id16">
-<h3>Returns:<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>The summary statistics of the dataset.</p>
 </dd>
@@ -344,10 +643,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_unique_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.get_unique_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_unique_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Retrieve the count of unique values for each column.</p>
 <section id="id17">
-<h3>Returns:<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>Series</dt><dd><p>A series containing the count of unique values for each column.</p>
 </dd>
@@ -357,10 +656,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">read_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.read_api"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">read_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Read data from an API into a DataFrame.</p>
 <section id="id18">
-<h3>Returns:<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>The dataset read from the API.</p>
 </dd>
@@ -370,10 +669,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.read_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Read a CSV file into a DataFrame.</p>
 <section id="id19">
-<h3>Returns:<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>The dataset read from the CSV file.</p>
 </dd>
@@ -383,10 +682,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.read_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Determine the file type and read the data accordingly.</p>
 <section id="id20">
-<h3>Returns:<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>The dataset read from the file or URL.</p>
 </dd>
@@ -396,10 +695,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">read_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.read_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">read_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Read JSON data from a URL or file into a DataFrame.</p>
 <section id="id21">
-<h3>Returns:<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<h4>Returns:<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>DataFrame</dt><dd><p>The dataset read from the JSON URL or file.</p>
 </dd>
@@ -409,10 +708,10 @@ and whether they are categorical or numerical.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">style_excel_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sheetbuddy.html#SheetBuddy.style_excel_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">style_excel_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Style an Excel sheet with header and row formatting.</p>
 <section id="id22">
-<h3>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<h4>Parameters:<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
 <dl class="simple">
 <dt>sheet<span class="classifier">openpyxl.worksheet.worksheet.Worksheet</span></dt><dd><p>The Excel sheet to style.</p>
 </dd>
@@ -423,37 +722,108 @@ and whether they are categorical or numerical.</p>
 </section>
 </dd></dl>
 
+<p>🔹 <strong>Key Features:</strong>
+- <strong>Data Loading:</strong> Read data from CSV, JSON, Excel, and API sources.
+- <strong>Data Summarization:</strong> Retrieve essential statistics and dataset insights.
+- <strong>EDA Report Generation:</strong> Automatically create <strong>detailed exploratory data analysis (EDA) reports</strong>.
+- <strong>Outlier Detection:</strong> Identify anomalies and outliers in datasets.
+- <strong>Visualization Support:</strong> Generate correlation heatmaps and histograms.
+- <strong>Data Cleaning Helpers:</strong> Get missing values, unique values, and more.</p>
+<p>For usage examples, refer to the <strong>Usage Guide</strong>.</p>
+</section>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="src.html" class="btn btn-neutral float-right" title="src package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright .</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="usage.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Using SheetBuddy</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="faq.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Frequently Asked Questions (FAQ)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sheetbuddy-module">SheetBuddy Module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ashish Rogannagari
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
