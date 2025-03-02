@@ -29,7 +29,7 @@ It supports **CSV, JSON, and API** data sources, making it a must-have for **dat
  **📝 Structured Dataset Summary** – **New ‘Dataset Info’ sheet** in reports for clarity.  
  **🎨 Conditional Formatting** – Makes reports more readable and professional.  
 
-📚 **[Full Documentation Here](https://github.com/AshishRogannagari/SheetBuddy/wiki/SheetBuddy-Version-3.1.1-Documentation)**  
+📚 **[Full Documentation Here](https://sheetbuddy.readthedocs.io/en/latest)**  
 
 ---
 
