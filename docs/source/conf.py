@@ -33,6 +33,8 @@ html_theme_options = {
     "home_page_in_toc": True,
     "path_to_docs": "docs/source",
     "show_navbar_depth": 2,
+    "show_version_warning_banner": False,  # Hides warning for old versions
+    "show_prev_next": False, 
 }
 
 # Force project name in the sidebar
@@ -44,6 +46,3 @@ html_context = {
     "github_version": "main/docs/",
     "theme_navbar_title": "SheetBuddy",  # This will change the sidebar title
 }
-
-
-

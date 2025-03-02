@@ -1,5 +1,4 @@
 sphinx
-sphinx-rtd-theme
 sphinx-book-theme
 sphinx-autodoc-typehints
 sphinxcontrib-napoleon
@@ -11,5 +10,3 @@ tqdm
 matplotlib
 seaborn
 scipy
-
-
