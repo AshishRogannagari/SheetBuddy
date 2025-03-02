@@ -3,7 +3,7 @@ version: 2
 build:
   os: ubuntu-22.04  # Use a stable OS version
   tools:
-    python: "3.10"  # Use 3.10 since 3.13 is experimental
+    python: "3.13"  # Use 3.10 since 3.13 is experimental
 
 sphinx:
   configuration: docs/source/conf.py
