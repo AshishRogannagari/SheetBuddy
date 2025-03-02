@@ -1,9 +1,9 @@
 version: 2
 
 build:
-  os: ubuntu-24.04
+  os: ubuntu-22.04  # Use a more stable OS version
   tools:
-    python: "3.13"
+    python: "3.10"  # Use Python 3.10 or 3.11 instead of 3.13
 
 sphinx:
   configuration: docs/source/conf.py
@@ -11,4 +11,3 @@ sphinx:
 python:
   install:
     - requirements: docs/requirements.txt
-
