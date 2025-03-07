@@ -108,7 +108,33 @@ matplotlib==3.4.3
 seaborn==0.11.2
 scipy==1.7.1
 ```
+## 🛋️ Project Structure
+```bash
+SheetBuddy/
+├── .github/                 # GitHub configuration (workflows, issue templates)
+├── _build/doctrees/         # Documentation build files
+├── build/                   # Build-related files
+├── demo/                    # Example scripts demonstrating usage
+├── docs/                    # Documentation (Sphinx, ReadTheDocs)
+├── github/workflows/        # GitHub Actions for CI/CD
+├── output/                  # Generated output files (Generated Sample Reports)
+├── src/                     # Source code for SheetBuddy
+│   ├── __init__.py          # Package initialization
+│   ├── (other module files) # Core library files
+├── tests/                   # Unit and integration tests
+├── .readthedocs.yaml        # ReadTheDocs configuration
+├── CONTRIBUTING.md          # Contribution guidelines
+├── LICENSE                  # License information
+├── MANIFEST.in              # Manifest for packaging
+├── Makefile                 # Build automation
+├── README.md                # Project documentation
+├── SECURITY.md              # Security policies
+├── environment.yml          # Conda environment configuration
+├── make.bat                 # Windows batch script for Makefile
+├── requirements.txt         # Python dependencies
+└── setup.py                 # Installation script
 
+```
 ---
 
 ## 🤝 Contributing  
